@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact : Kiel Hedrix</title>
+  <meta name="description" content="Get in touch with Kiel Hedrix for web development projects and collaborations." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>main{opacity:0}</style>
+  <script type="module" src="/src/main.js"></script>
+
+  <style>
+    .contact {
+      max-width: var(--container-narrow);
+      margin: 0 auto;
+      padding: var(--space-5xl) var(--space-xl);
+    }
+
+    .contact__intro {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .contact__intro p {
+      font-size: var(--font-size-md);
+      color: var(--color-gray-500);
+    }
+
+    .contact__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3xl);
+    }
+
+    .contact__info {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2xl);
+    }
+
+    .contact__info-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-xs);
+    }
+
+    .contact__info-label {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wider);
+      color: var(--color-gray-500);
+    }
+
+    .contact__info-value {
+      font-size: var(--font-size-base);
+      color: var(--color-gray-700);
+      font-weight: var(--font-weight-medium);
+    }
+
+    .contact__info-value a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .contact__socials {
+      display: flex;
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+
+    .contact__social-link {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-gray-500);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color var(--transition-fast);
+    }
+
+    .contact__social-link:hover {
+      color: var(--color-gray-900);
+    }
+
+    .form__success {
+      display: none;
+      padding: var(--space-lg);
+      background: var(--color-gray-50);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      text-align: center;
+      color: var(--color-gray-700);
+      font-weight: var(--font-weight-medium);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .form__success.visible {
+      display: block;
+    }
+
+    .form__error {
+      display: none;
+      padding: var(--space-lg);
+      background: var(--color-gray-50);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-md);
+      text-align: center;
+      color: var(--color-gray-700);
+      margin-top: var(--space-md);
+      line-height: var(--line-height-relaxed);
+    }
+
+    .form__error.visible {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .contact__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="contact" aria-label="Contact">
+      <div class="section-header reveal">
+        <span class="section-header__label">Contact</span>
+        <h1 class="section-header__title">Let's Connect</h1>
+        <div class="section-header__line"></div>
+      </div>
+
+      <div class="contact__intro reveal">
+        <p>
+          Have a project in mind, or just want to say hello? I'd love to hear from you. Fill out the form or reach out through any of the channels below.
+        </p>
+      </div>
+
+      <div class="contact__grid">
+        <!-- Contact Form -->
+        <div class="reveal">
+          <form class="form" id="contact-form" action="https://formsubmit.co/reloskielhedrix@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New Portfolio Message for Kiel Hedrix" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            
+            <div class="form__group">
+              <label for="name" class="form__label">Name</label>
+              <input type="text" id="name" name="name" class="form__input" placeholder="Your name" required />
+            </div>
+            <div class="form__group">
+              <label for="email" class="form__label">Email</label>
+              <input type="email" id="email" name="email" class="form__input" placeholder="your@email.com" required />
+            </div>
+            <div class="form__group">
+              <label for="message" class="form__label">Message</label>
+              <textarea id="message" name="message" class="form__textarea" placeholder="Tell me about your project..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary" id="submit-btn">Send Message</button>
+          </form>
+
+          <div class="form__success" id="form-success">
+            Thank you! Your message has been sent directly to reloskielhedrix@gmail.com.
+          </div>
+
+          <div class="form__error" id="form-error">
+            Could not send message automatically. <a href="mailto:reloskielhedrix@gmail.com" id="fallback-email-link" style="text-decoration: underline; font-weight: 500;">Click here to email reloskielhedrix@gmail.com directly</a>.
+          </div>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="contact__info reveal">
+          <div class="contact__info-item">
+            <span class="contact__info-label">Email</span>
+            <span class="contact__info-value">
+              <a href="mailto:reloskielhedrix@gmail.com">reloskielhedrix@gmail.com</a>
+            </span>
+          </div>
+          <div class="contact__info-item">
+            <span class="contact__info-label">Location</span>
+            <span class="contact__info-value">Legazpi City, Albay</span>
+          </div>
+          <div class="contact__info-item">
+            <span class="contact__info-label">Availability</span>
+            <span class="contact__info-value">Open to projects and opportunities</span>
+          </div>
+
+          <div>
+            <span class="contact__info-label" style="margin-bottom: var(--space-md); display: block;">Socials</span>
+            <div class="contact__socials">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact__social-link">GitHub</a>
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact__social-link">LinkedIn</a>
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="contact__social-link">Twitter</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script type="module">
+    const form = document.getElementById('contact-form');
+    const success = document.getElementById('form-success');
+    const formError = document.getElementById('form-error');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const name = form.querySelector('#name').value.trim();
+      const email = form.querySelector('#email').value.trim();
+      const message = form.querySelector('#message').value.trim();
+
+      if (!name || !email || !message) {
+        alert('Please fill out all fields before sending.');
+        return;
+      }
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+      if (formError) formError.classList.remove('visible');
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/reloskielhedrix@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            message,
+            _subject: `New Portfolio Message from ${name}`,
+            _template: 'table',
+            _captcha: 'false'
+          })
+        });
+
+        const data = await response.json();
+
+        if (response.ok && data.success !== 'false') {
+          form.style.display = 'none';
+          success.classList.add('visible');
+        } else {
+          throw new Error('Form submission was not accepted');
+        }
+      } catch (err) {
+        console.error('Contact form submission error:', err);
+        const mailtoHref = `mailto:reloskielhedrix@gmail.com?subject=Contact from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}%0A%0AFrom: ${encodeURIComponent(name)} (${encodeURIComponent(email)})`;
+        const fallbackLink = document.getElementById('fallback-email-link');
+        if (fallbackLink) fallbackLink.href = mailtoHref;
+        if (formError) formError.classList.add('visible');
+
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

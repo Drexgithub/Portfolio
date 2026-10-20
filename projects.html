@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects : Kiel Hedrix</title>
+  <meta name="description" content="A collection of web development projects built by Kiel Hedrix." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>main{opacity:0}</style>
+  <script type="module" src="/src/main.js"></script>
+</head>
+<body>
+  <main class="page">
+    <section class="section container" aria-label="Projects">
+      <div class="section-header reveal">
+        <span class="section-header__label">Projects</span>
+        <h1 class="section-header__title">Selected Work</h1>
+        <div class="section-header__line"></div>
+      </div>
+
+      <div class="grid grid--2 reveal-stagger">
+        <!-- Kiel Biel Inventory -->
+        <article class="card reveal" id="project-kielbiel">
+          <img src="/projects/kielbiel-inventory.png" alt="Kiel Biel Consumer Goods Trading inventory system screenshot" class="card__image" />
+          <h2 class="card__title">Kiel Biel Consumer Goods Trading</h2>
+          <p class="card__description">
+            A comprehensive inventory and point-of-sale management system built to streamline stock tracking, manage customer sales orders, and provide real-time business reporting.
+          </p>
+          <div class="card__tags">
+            <span class="card__tag">Vue.js</span>
+            <span class="card__tag">Supabase</span>
+            <span class="card__tag">Vite</span>
+          </div>
+          <div class="card__links">
+            <a href="https://kielbiel-inventory.vercel.app/login" class="card__link" target="_blank" rel="noopener noreferrer">Live Demo</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

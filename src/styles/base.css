@@ -1,0 +1,85 @@
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-gray-700);
+  background-color: var(--color-white);
+}
+
+/* — Headings — */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-gray-900);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-5xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-md);
+}
+
+/* — Paragraphs — */
+p {
+  max-width: var(--container-text);
+  color: var(--color-gray-700);
+  line-height: var(--line-height-relaxed);
+}
+
+/* — Links — */
+a {
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-gray-900);
+}
+
+/* — Small / Caption text — */
+small {
+  font-size: var(--font-size-sm);
+  color: var(--color-gray-500);
+}
+
+/* — Selection — */
+::selection {
+  background-color: var(--color-gray-900);
+  color: var(--color-white);
+}
+
+/* — Responsive headings — */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-3xl);
+  }
+  h2 {
+    font-size: var(--font-size-2xl);
+  }
+  h3 {
+    font-size: var(--font-size-xl);
+  }
+}

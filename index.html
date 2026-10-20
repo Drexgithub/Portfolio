@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kiel Hedrix — Web Developer</title>
+  <meta name="description"
+    content="Kiel Hedrix is a web developer crafting clean, performant, and user-centered digital experiences." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    main {
+      opacity: 0
+    }
+  </style>
+  <script type="module" src="/src/main.js"></script>
+
+  <style>
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 var(--space-xl);
+      max-width: var(--container-max);
+      margin: 0 auto;
+      position: relative;
+      gap: var(--space-3xl);
+    }
+
+    .hero__content {
+      flex: 1 1 480px;
+      max-width: 540px;
+      z-index: 2;
+    }
+
+    .hero__label {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wider);
+      color: var(--color-gray-500);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero__name {
+      font-size: clamp(2.5rem, 6.5vw, 5rem);
+      font-weight: var(--font-weight-bold);
+      line-height: var(--line-height-tight);
+      letter-spacing: -0.03em;
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero__tagline {
+      font-size: var(--font-size-lg);
+      color: var(--color-gray-500);
+      line-height: var(--line-height-relaxed);
+      max-width: 520px;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: var(--space-md);
+      flex-wrap: wrap;
+    }
+
+    /* Right side portrait visual */
+    .hero__visual {
+      flex: 0 0 auto;
+      width: clamp(340px, 36vw, 500px);
+      max-width: 100%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      margin: 0;
+    }
+
+    .hero__portrait {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(100%) contrast(1.12) brightness(1.02);
+      mix-blend-mode: multiply;
+      mask-image: url('/pixel-mask.svg');
+      -webkit-mask-image: url('/pixel-mask.svg');
+      mask-size: 100% 100%;
+      -webkit-mask-size: 100% 100%;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+    }
+
+
+    /* Quick intro section below fold */
+    .intro-wrapper {
+      overflow: hidden;
+    }
+
+    .intro {
+      padding: var(--space-5xl) var(--space-xl);
+      max-width: var(--container-max);
+      margin: 0 auto;
+    }
+
+    .intro__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-3xl);
+    }
+
+    .intro__label {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-400);
+      letter-spacing: var(--letter-spacing-wider);
+    }
+
+    .intro__label span {
+      color: var(--color-gray-300);
+      margin-right: var(--space-sm);
+    }
+
+    /* Card stack container */
+    .intro__stack {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 380px;
+      perspective: 1000px;
+    }
+
+    /* Individual cards */
+    .intro__card {
+      position: absolute;
+      width: 340px;
+      min-height: 300px;
+      background: var(--color-white);
+      border: 1px solid var(--color-gray-200);
+      border-radius: 20px;
+      padding: var(--space-2xl);
+      display: flex;
+      flex-direction: column;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: default;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .intro__card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 21px;
+      background: linear-gradient(135deg, var(--color-gray-200), transparent, var(--color-gray-200));
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    /* Left card — tilted and offset */
+    .intro__card--left {
+      transform: translateX(-280px) rotate(-8deg) scale(0.9);
+      z-index: 1;
+    }
+
+    /* Center card — prominent */
+    .intro__card--center {
+      transform: translateX(0) rotate(0deg) scale(1);
+      z-index: 3;
+      border-color: var(--color-gray-300);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* Right card — tilted and offset */
+    .intro__card--right {
+      transform: translateX(280px) rotate(8deg) scale(0.9);
+      z-index: 1;
+    }
+
+    /* Hover effects */
+    .intro__card:hover {
+      transform: translateY(-12px) rotate(0deg) scale(1.04);
+      z-index: 10;
+      border-color: var(--color-gray-400);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px var(--color-gray-300);
+    }
+
+    .intro__card:hover::before {
+      opacity: 1;
+    }
+
+    .intro__card--left:hover {
+      transform: translateX(-280px) translateY(-12px) rotate(0deg) scale(1.04);
+    }
+
+    .intro__card--right:hover {
+      transform: translateX(280px) translateY(-12px) rotate(0deg) scale(1.04);
+    }
+
+    /* Card inner content */
+    .intro__card-number {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-gray-300);
+      letter-spacing: var(--letter-spacing-wider);
+      text-transform: uppercase;
+      margin-bottom: var(--space-2xl);
+    }
+
+    .intro__card-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg);
+      background: var(--color-gray-50);
+      border: 1px solid var(--color-gray-200);
+      margin-bottom: var(--space-lg);
+      color: var(--color-gray-700);
+      transition: background 0.4s ease, border-color 0.4s ease;
+    }
+
+    .intro__card:hover .intro__card-icon {
+      background: var(--color-gray-100);
+      border-color: var(--color-gray-300);
+    }
+
+    .intro__card-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+    }
+
+    .intro__card-title {
+      font-size: var(--font-size-xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-gray-900);
+      margin-bottom: var(--space-sm);
+    }
+
+    .intro__card-text {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+      line-height: var(--line-height-relaxed);
+      flex-grow: 1;
+    }
+
+    .intro__card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-sm);
+      margin-top: var(--space-xl);
+      padding: var(--space-sm) var(--space-md);
+      border: 1px solid var(--color-gray-200);
+      border-radius: var(--radius-full);
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-gray-500);
+      letter-spacing: var(--letter-spacing-wide);
+      text-transform: uppercase;
+      width: fit-content;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+
+    .intro__card:hover .intro__card-badge {
+      border-color: var(--color-gray-400);
+      color: var(--color-gray-700);
+    }
+
+    .intro__card-badge svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .intro__card {
+        width: 300px;
+        min-height: 260px;
+      }
+
+      .intro__card--left {
+        transform: translateX(-220px) rotate(-6deg) scale(0.88);
+      }
+
+      .intro__card--right {
+        transform: translateX(220px) rotate(6deg) scale(0.88);
+      }
+
+      .intro__card--left:hover {
+        transform: translateX(-220px) translateY(-12px) rotate(0deg) scale(1.02);
+      }
+
+      .intro__card--right:hover {
+        transform: translateX(220px) translateY(-12px) rotate(0deg) scale(1.02);
+      }
+    }
+
+    @media (max-width: 992px) {
+      .hero {
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-items: flex-start;
+        padding-top: calc(var(--space-5xl) + 2rem);
+        padding-bottom: var(--space-4xl);
+        min-height: auto;
+        gap: var(--space-2xl);
+      }
+
+      .hero__visual {
+        width: clamp(260px, 50vw, 380px);
+        align-self: flex-start;
+        margin: 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .intro__stack {
+        flex-direction: column;
+        min-height: auto;
+        gap: var(--space-lg);
+        perspective: none;
+      }
+
+      .intro__card {
+        position: relative;
+        width: 100%;
+        max-width: 400px;
+        min-height: auto;
+      }
+
+      .intro__card--left,
+      .intro__card--center,
+      .intro__card--right {
+        transform: none;
+        z-index: 1;
+      }
+
+      .intro__card:hover,
+      .intro__card--left:hover,
+      .intro__card--right:hover {
+        transform: translateY(-6px) scale(1.02);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <!-- Hero Section -->
+    <section class="hero" id="hero" aria-label="Introduction">
+      <div class="hero__content">
+        <p class="hero__label hero-anim-1">Web Developer</p>
+        <h1 class="hero__name hero-anim-2">Kiel Hedrix</h1>
+        <p class="hero__tagline hero-anim-3">
+          I craft clean, performant, and user-centered web experiences with a focus on simplicity and attention to detail.
+        </p>
+        <div class="hero__actions hero-anim-3">
+          <a href="/projects.html" class="btn btn--primary">View Projects</a>
+          <a href="/contact.html" class="btn btn--ghost">Get in Touch</a>
+        </div>
+      </div>
+
+      <div class="hero__visual hero-anim-2">
+        <img src="/kiel-portrait.jpg" alt="Kiel Hedrix" class="hero__portrait" />
+      </div>
+
+    </section>
+
+    <!-- Stacked cards section -->
+    <section class="intro-wrapper section--gray" aria-label="What I do">
+      <div class="intro">
+        <div class="intro__header reveal">
+          <p class="intro__label"><span>01</span> — what i do</p>
+        </div>
+
+        <div class="intro__stack reveal--fade">
+          <!-- Left Card -->
+          <div class="intro__card intro__card--left">
+            <p class="intro__card-number">01</p>
+            <div class="intro__card-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                <line x1="3" y1="9" x2="21" y2="9" />
+                <line x1="9" y1="21" x2="9" y2="9" />
+              </svg>
+            </div>
+            <h3 class="intro__card-title">Design</h3>
+            <p class="intro__card-text">
+              Clean and minimal interfaces that prioritize content and readability above all else.
+            </p>
+            <div class="intro__card-badge">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              UI / UX
+            </div>
+          </div>
+
+          <!-- Center Card -->
+          <div class="intro__card intro__card--center">
+            <p class="intro__card-number">02</p>
+            <div class="intro__card-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="16 18 22 12 16 6" />
+                <polyline points="8 6 2 12 8 18" />
+                <line x1="14" y1="4" x2="10" y2="20" />
+              </svg>
+            </div>
+            <h3 class="intro__card-title">Develop</h3>
+            <p class="intro__card-text">
+              Modern, performant code using the latest web technologies and best practices.
+            </p>
+            <div class="intro__card-badge">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              Frontend & Backend
+            </div>
+          </div>
+
+          <!-- Right Card -->
+          <div class="intro__card intro__card--right">
+            <p class="intro__card-number">03</p>
+            <div class="intro__card-icon">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+            </div>
+            <h3 class="intro__card-title">Deliver</h3>
+            <p class="intro__card-text">
+              Responsive, accessible, and fast experiences that work seamlessly across devices.
+            </p>
+            <div class="intro__card-badge">
+              <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              Ship & Iterate
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>

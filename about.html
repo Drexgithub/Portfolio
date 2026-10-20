@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About : Kiel Hedrix</title>
+  <meta name="description" content="Learn more about Kiel Hedrix, a web developer passionate about building clean and intuitive digital experiences." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>main{opacity:0}</style>
+  <script type="module" src="/src/main.js"></script>
+
+  <style>
+    .about {
+      max-width: var(--container-narrow);
+      margin: 0 auto;
+      padding: var(--space-5xl) var(--space-xl);
+    }
+
+    .about__bio {
+      margin-bottom: var(--space-3xl);
+    }
+
+    .about__bio p {
+      margin-bottom: var(--space-lg);
+      font-size: var(--font-size-md);
+    }
+
+    .about__philosophy {
+      padding: var(--space-2xl);
+      background: var(--color-gray-50);
+      border-left: 3px solid var(--color-gray-300);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    }
+
+    .about__philosophy-title {
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wider);
+      color: var(--color-gray-500);
+      margin-bottom: var(--space-md);
+    }
+
+    .about__philosophy p {
+      font-size: var(--font-size-base);
+      font-style: italic;
+      color: var(--color-gray-500);
+    }
+
+    .about__details {
+      margin-top: var(--space-3xl);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-xl);
+    }
+
+    .about__detail-label {
+      font-size: var(--font-size-xs);
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: var(--letter-spacing-wider);
+      color: var(--color-gray-500);
+      margin-bottom: var(--space-xs);
+    }
+
+    .about__detail-value {
+      font-size: var(--font-size-base);
+      color: var(--color-gray-700);
+      font-weight: var(--font-weight-medium);
+    }
+
+    @media (max-width: 640px) {
+      .about__details {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="about" aria-label="About me">
+      <div class="section-header reveal">
+        <span class="section-header__label">About</span>
+        <h1 class="section-header__title">A bit about me</h1>
+        <div class="section-header__line"></div>
+      </div>
+
+      <div class="about__bio reveal">
+        <p>
+          Hi, I'm Kiel, a web developer who believes in the power of simplicity. I build digital experiences that are clean, intuitive, and focused on what matters most: the people who use them.
+        </p>
+        <p>
+          With a strong foundation in modern web technologies, I enjoy turning complex problems into elegant solutions. I pay close attention to the small details (the spacing, the typography, the subtle interactions), because they're what make a good experience feel great.
+        </p>
+        <p>
+          When I'm not coding, you'll find me exploring new technologies, contributing to open-source, or looking for inspiration in design, architecture, and everyday objects.
+        </p>
+      </div>
+
+      <div class="about__philosophy reveal">
+        <p class="about__philosophy-title">My Philosophy</p>
+        <p>
+          "Good design is as little design as possible. Less, but better, because it concentrates on the essential aspects, and the products are not burdened with non-essentials."
+        </p>
+      </div>
+
+      <div class="about__details reveal">
+        <div>
+          <p class="about__detail-label">Location</p>
+          <p class="about__detail-value">Legazpi City, Albay</p>
+        </div>
+        <div>
+          <p class="about__detail-label">Focus</p>
+          <p class="about__detail-value">Web Development</p>
+        </div>
+        <div>
+          <p class="about__detail-label">Education</p>
+          <p class="about__detail-value">Information Technology</p>
+        </div>
+        <div>
+          <p class="about__detail-label">Languages</p>
+          <p class="about__detail-value">English, Filipino</p>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
