@@ -5,7 +5,7 @@
  * then navigates. On page load, plays an entrance animation.
  */
 
-const TRANSITION_DURATION = 400; // ms — matches CSS
+const TRANSITION_DURATION = 400; // ms: matches CSS
 
 /**
  * Creates the transition overlay element
@@ -25,6 +25,9 @@ function isInternalLink(anchor) {
   if (!anchor || !anchor.href) return false;
   if (anchor.target === '_blank') return false;
   if (anchor.hasAttribute('download')) return false;
+
+  const rawHref = anchor.getAttribute('href') || '';
+  if (rawHref.startsWith('#')) return false;
 
   const url = new URL(anchor.href, window.location.origin);
 
